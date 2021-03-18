@@ -63,7 +63,7 @@ body {
   align-items: center;
   justify-content: center;
   transition: background-color 0.5s ease;
-  background-color: rgba(119, 0, 255, 0.144);
+  background-color: blue;
   cursor: pointer;
 }
 .apagarcep {
@@ -81,7 +81,7 @@ body {
   cursor: pointer;
 }
 .buscarcepp:hover {
-  background-color: green;
+  background-color:darkturquoise;
 }
 .apagarcep:hover {
   background-color: red;

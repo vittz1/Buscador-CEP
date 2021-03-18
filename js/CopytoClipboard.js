@@ -1,1 +1,70 @@
-var _0xfe05=['body','string','1001894gwBckO','style','254777LxowCP','selectionStart','msg','-9999px','307523TwFyGu','textContent','18771YQVoFe','addEventListener','click','TEXTAREA','1kRmuSj','copy','selectionEnd','1vmKTbW','tagName','_hiddenCopyText_','37Qjcfpl','2uzZxCL','execCommand','focus','getElementById','createElement','Endereço\x20copiado\x20para\x20a\x20área\x20de\x20transferência','function','450862yTVQAi','INPUT','setSelectionRange','416597RWltJG','copyButton','innerHTML','position','absolute','dadosCep','814801NkvcAL','2dmCIDx'];var _0x1321=function(_0x39f380,_0x560a3a){_0x39f380=_0x39f380-0x110;var _0xfe05cc=_0xfe05[_0x39f380];return _0xfe05cc;};var _0x81fa9b=_0x1321;(function(_0x1c96a1,_0x435542){var _0x4bdea7=_0x1321;while(!![]){try{var _0x4de896=parseInt(_0x4bdea7(0x121))+-parseInt(_0x4bdea7(0x111))*-parseInt(_0x4bdea7(0x11b))+-parseInt(_0x4bdea7(0x125))+parseInt(_0x4bdea7(0x110))*-parseInt(_0x4bdea7(0x12d))+parseInt(_0x4bdea7(0x12b))*-parseInt(_0x4bdea7(0x131))+-parseInt(_0x4bdea7(0x122))*-parseInt(_0x4bdea7(0x127))+-parseInt(_0x4bdea7(0x118))*-parseInt(_0x4bdea7(0x134));if(_0x4de896===_0x435542)break;else _0x1c96a1['push'](_0x1c96a1['shift']());}catch(_0x18e2f7){_0x1c96a1['push'](_0x1c96a1['shift']());}}}(_0xfe05,0x93933),document['getElementById'](_0x81fa9b(0x11c))[_0x81fa9b(0x12e)](_0x81fa9b(0x12f),function(){var _0x5296c4=_0x81fa9b;copyToClipboardMsg(document[_0x5296c4(0x114)](_0x5296c4(0x120)),_0x5296c4(0x129));}));function copyToClipboardMsg(_0x1c80e6,_0x2fca74){var _0x12332e=_0x81fa9b,_0x246bff=copyToClipboard(_0x1c80e6),_0x545e1a;!_0x246bff?alert('Copy\x20not\x20supported\x20or\x20blocked.\x20\x20Press\x20Ctrl+c\x20to\x20copy.'):alert(_0x12332e(0x116)),typeof _0x2fca74===_0x12332e(0x124)&&(_0x2fca74=document[_0x12332e(0x114)](_0x2fca74)),_0x2fca74[_0x12332e(0x11d)]=_0x545e1a,setTimeout(function(){var _0xfed83f=_0x12332e;_0x2fca74[_0xfed83f(0x11d)]='';},0x7d0);}function copyToClipboard(_0x1b0743){var _0x1ca8ab=_0x81fa9b,_0x25268e=_0x1ca8ab(0x136),_0x3b5a27=_0x1b0743[_0x1ca8ab(0x135)]===_0x1ca8ab(0x119)||_0x1b0743[_0x1ca8ab(0x135)]===_0x1ca8ab(0x130),_0x5f503e,_0x3c02ea;if(_0x3b5a27)_0x1b790d=_0x1b0743,_0x5f503e=_0x1b0743[_0x1ca8ab(0x128)],_0x3c02ea=_0x1b0743[_0x1ca8ab(0x133)];else{_0x1b790d=document[_0x1ca8ab(0x114)](_0x25268e);if(!_0x1b790d){var _0x1b790d=document[_0x1ca8ab(0x115)]('textarea');_0x1b790d[_0x1ca8ab(0x126)][_0x1ca8ab(0x11e)]=_0x1ca8ab(0x11f),_0x1b790d[_0x1ca8ab(0x126)]['left']=_0x1ca8ab(0x12a),_0x1b790d[_0x1ca8ab(0x126)]['top']='0',_0x1b790d['id']=_0x25268e,document[_0x1ca8ab(0x123)]['appendChild'](_0x1b790d);}_0x1b790d[_0x1ca8ab(0x12c)]=_0x1b0743['textContent'];}var _0x2dfa45=document['activeElement'];_0x1b790d[_0x1ca8ab(0x113)](),_0x1b790d[_0x1ca8ab(0x11a)](0x0,_0x1b790d['value']['length']);var _0x443a05;try{_0x443a05=document[_0x1ca8ab(0x112)](_0x1ca8ab(0x132));}catch(_0x3fe172){_0x443a05=![];}return _0x2dfa45&&typeof _0x2dfa45[_0x1ca8ab(0x113)]===_0x1ca8ab(0x117)&&_0x2dfa45[_0x1ca8ab(0x113)](),_0x3b5a27?_0x1b0743[_0x1ca8ab(0x11a)](_0x5f503e,_0x3c02ea):_0x1b790d['textContent']='',_0x443a05;}
+document.getElementById("copyButton").addEventListener("click", function() {
+    copyToClipboardMsg(document.getElementById("dadosCep"), "msg");
+});
+
+function copyToClipboardMsg(elem, msgElem) {
+	  var succeed = copyToClipboard(elem);
+    var msg;
+    if (!succeed) {
+        alert("Copy not supported or blocked.  Press Ctrl+c to copy.")
+    } else {
+        alert("Endereço copiado para a área de transferência")
+    }
+    if (typeof msgElem === "string") {
+        msgElem = document.getElementById(msgElem);
+    }
+    msgElem.innerHTML = msg;
+    setTimeout(function() {
+        msgElem.innerHTML = "";
+    }, 2000);
+}
+
+function copyToClipboard(elem) {
+	  // create hidden text element, if it doesn't already exist
+    var targetId = "_hiddenCopyText_";
+    var isInput = elem.tagName === "INPUT" || elem.tagName === "TEXTAREA";
+    var origSelectionStart, origSelectionEnd;
+    if (isInput) {
+        // can just use the original source element for the selection and copy
+        target = elem;
+        origSelectionStart = elem.selectionStart;
+        origSelectionEnd = elem.selectionEnd;
+    } else {
+        // must use a temporary form element for the selection and copy
+        target = document.getElementById(targetId);
+        if (!target) {
+            var target = document.createElement("textarea");
+            target.style.position = "absolute";
+            target.style.left = "-9999px";
+            target.style.top = "0";
+            target.id = targetId;
+            document.body.appendChild(target);
+        }
+        target.textContent = elem.textContent;
+    }
+    // select the content
+    var currentFocus = document.activeElement;
+    target.focus();
+    target.setSelectionRange(0, target.value.length);
+    
+    // copy the selection
+    var succeed;
+    try {
+    	  succeed = document.execCommand("copy");
+    } catch(e) {
+        succeed = false;
+    }
+    // restore original focus
+    if (currentFocus && typeof currentFocus.focus === "function") {
+        currentFocus.focus();
+    }
+    
+    if (isInput) {
+        // restore prior selection
+        elem.setSelectionRange(origSelectionStart, origSelectionEnd);
+    } else {
+        // clear temporary content
+        target.textContent = "";
+    }
+    return succeed;
+}
