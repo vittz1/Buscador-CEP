@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head> 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css"> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+        <link rel="icon" href="https://i.imgur.com/PUFqi5B.png">
+        <title>Buscador de CEP</title>
+    </head>
+    <body> 
+        <div class="body">
+            <div class="flex-center-vertically">
+                <div class="inline">
+                    <button class="apagarcep" onclick="limpaCep()">
+                        <i class="far fa-trash-alt" alt="Apagar CEP" title="Apagar CEP"></i>
+                    </button>
+                <input id="input-cep" class="cep-input" type='text' placeholder="Digite o CEP" title="Somente Números" maxlength="8" onkeyup="buscaCep()" autofocus required>
+                    <button class="buscarcepp" id="buscarCep" onclick="buscaCep(cep)">
+                        <i class="fas fa-search-location" alt="Buscar CEP" title="Buscar CEP"></i>
+                    </button> 
+                </div>
+                    <p class="erro" id="erro"></p>
+                <div class="inline">
+                        <button id="copyButton"> 
+                        <i class="far fa-copy" alt="Copy to clipboard"></i>Copiar
+                        </button> 
+                    </div>
+                <div class="endereco" id="dadosCep"> 
+                    <h2>CEP</h2>
+                        <p data-cep id="dcep"></p>
+                    <h2>Logradouro</h2>
+                        <p data-log id="dcep"></p> 
+                    <h2>Bairro</h2>
+                        <p data-bairro id="dcep"></p>
+                    <h2>Localidade</h2>
+                        <p data-local id="dcep"></p>
+                    <h2>UF</h2>
+                        <p data-uf id="dcep"></p>
+                    <h2>DDD</h2>
+                        <p data-ddd id="dcep"></p>
+                </div>
+            </div>
+        </div>
+        <!-- ================== FOOTER ================== -->
+        <footer class="footer">
+            <div class="author">
+                <p><a href="https://github.com/vittz1" target="_blank" alt="Clique para mais projetos" title="Clique para mais projetos"><i class="fas fa-code"></i>by vittz<i class="fas fa-globe"></i></a></p>
+            </div>
+            <ul class="social-links">
+                <li><a href="https://github.com/vittz1" target=”_blank”
+                    title="Perfil Github"><i class="fab fa-github"></i></a></li>
+        
+            </ul>
+        </footer>
+            <!-- 3. Instantiate clipboard by passing a HTML element -->
+        <script src="./js/filteringInput.js"></script>
+        <script src="./js/buscaCep.js"></script>
+        <script src="./js/CopytoClipboard.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+    </body>
+</html>
